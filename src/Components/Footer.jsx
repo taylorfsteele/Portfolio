@@ -10,12 +10,14 @@ import { animateScroll as scroll } from 'react-scroll';
 
 const useStyles = makeStyles((theme) => ({
   footer: {
-    backgroundColor: 'aqua',
+    // backgroundColor: 'aqua',
+    // display: 'flex',
     padding: theme.spacing(2),
   },
   item: {
     display: 'flex',
     justifyContent: 'center',
+    width: '100%',
   },
   menuButton: {
     margin: theme.spacing(1),
@@ -37,7 +39,7 @@ export default function Footer({ footer }) {
   return (
     <footer className={classes.footer}>
       <Grid container>
-        <Grid item sm={12} style={{ display: 'flex', justifyContent: 'center' }}>
+        <Grid item sm={12} className={classes.item}>
           <IconButton onClick={scroll.scrollToTop} className={classes.menuButton} color="inherit">
             s
           </IconButton>
@@ -58,7 +60,7 @@ export default function Footer({ footer }) {
         <Grid item xs={12} md={6} className={classes.item}>
           <Box className={classes.box} borderTop={1}>
             <Typography variant="button">
-                Site by Taylor Steele
+              <Button href={footer.trello} rel="noopener noreferrer" target="_blank">Site by Taylor Steele</Button>
             </Typography>
           </Box>
         </Grid>
@@ -75,6 +77,7 @@ Footer.propTypes = {
     linkedInUrl: PropTypes.string,
     resume: PropTypes.string,
     resumeUrl: PropTypes.string,
+    trello: PropTypes.string,
   }),
 };
 

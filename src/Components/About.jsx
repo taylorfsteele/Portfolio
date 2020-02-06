@@ -3,12 +3,11 @@ import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
+import Box from '@material-ui/core/Box';
 import Tilt from 'react-tilt';
 import javascript from '../Assets/javascript.svg';
 import nodejs from '../Assets/nodejs.png';
 import reactLogo from '../Assets/logo512.png';
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
   title: {
     textAlign: 'center',
     width: '100%',
+    textTransform: 'uppercase',
   },
   container: {
     justifyContent: 'center',
@@ -41,20 +41,26 @@ export default function About({ aboutMe }) {
   return (
     <div className={classes.root}>
       <Typography className={classes.title} variant="h4" gutterBottom>
-        Yo
+        {aboutMe.title}
       </Typography>
       <Grid container className={classes.container} spacing={3}>
         <Grid item xs={12} sm={9} md={4}>
-          <Paper className={classes.paper}>
-            <Typography variant="button">
-              {aboutMe.title}
-            </Typography>
-            <Typography variant="body2">
-              {aboutMe.caption}
-            </Typography>
-          </Paper>
+          <Box className={classes.box}>
+            <Typography variant="button">{aboutMe.subtitle1}</Typography>
+            <Typography variant="body2">{aboutMe.caption1}</Typography>
+          </Box>
+          <Box className={classes.box} style={{ marginTop: 10 }}>
+            <Typography variant="button">{aboutMe.subtitle2}</Typography>
+            <Typography variant="body2">{aboutMe.caption2}</Typography>
+          </Box>
         </Grid>
-        <Grid item xs={12} sm={9} md={4} style={{ display: 'flex', justifyContent: 'space-around' }}>
+        <Grid
+          item
+          xs={12}
+          sm={9}
+          md={4}
+          style={{ display: 'flex', justifyContent: 'space-around' }}
+        >
           <Tilt className={`${classes.tilt} Tilt`} options={{ max: 10 }}>
             <div className="tilt-inner">
               <img className={classes.images} alt="Javascript" src={javascript} />
@@ -62,12 +68,22 @@ export default function About({ aboutMe }) {
           </Tilt>
           <Tilt className={`${classes.tilt} Tilt`} options={{ max: 10 }}>
             <div className="tilt-inner">
-              <img className={classes.images} alt="NodeJs" src={nodejs} style={{ backgroundColor: '#8BC500' }} />
+              <img
+                className={classes.images}
+                alt="NodeJs"
+                src={nodejs}
+                style={{ backgroundColor: '#8BC500' }}
+              />
             </div>
           </Tilt>
           <Tilt className={`${classes.tilt} Tilt`} options={{ max: 10 }}>
             <div className="tilt-inner">
-              <img className={classes.images} alt="React" src={reactLogo} style={{ backgroundColor: '#282c34' }} />
+              <img
+                className={classes.images}
+                alt="React"
+                src={reactLogo}
+                style={{ backgroundColor: '#282c34' }}
+              />
             </div>
           </Tilt>
         </Grid>
@@ -79,7 +95,10 @@ export default function About({ aboutMe }) {
 About.propTypes = {
   aboutMe: PropTypes.shape({
     title: PropTypes.string,
-    caption: PropTypes.string,
+    subtitle1: PropTypes.string,
+    caption1: PropTypes.string,
+    subtitle2: PropTypes.string,
+    caption2: PropTypes.string,
   }),
 };
 

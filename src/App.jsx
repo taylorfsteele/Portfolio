@@ -9,6 +9,9 @@ import HeroCard from './Components/HeroCard';
 import Projects from './Components/Projects';
 import About from './Components/About';
 import Footer from './Components/Footer';
+import subway from './Assets/subway.jpg';
+import jobBoard from './Assets/jobBoard.jpg';
+import timer from './Assets/timer.jpg';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -37,6 +40,7 @@ const footer = {
   linkedInUrl: 'https://www.linkedin.com/in/taylorfsteele/',
   resume: 'resume',
   resumeUrl: '',
+  trello: 'https://trello.com/b/inBbrP3X/portfolio-website',
 };
 
 const navBar = {
@@ -47,56 +51,53 @@ const navBar = {
 
 const heroCard = {
   title: 'Taylor Steele',
-  caption: 'Developer',
+  caption: 'Software Engineer',
 };
 
 const aboutMe = {
-  title: 'Buzzword Title',
-  caption: 'Here\'s a really cool description of stuff about me. I\'m awesome.',
+  title: 'Full Stack Focused',
+  subtitle1: 'Motivated to Master',
+  caption1: 'As a tenacious self-taught programmer, I approach every project as an opportunity to challenge my own knowledge and limitations in the pursuit of mastery.',
+  subtitle2: 'A Person-First Approach',
+  caption2: 'I leverage my hospitality background to create compelling customer experiences. I strive for experience in use, elegance in design.',
 };
 
 const projects = [
   {
-    title: 'Project 1',
-    tech: ['React', 'Redux', 'NodeJs', 'Twitter API'],
-    description: 'This is a description of the project highlighting some cool stuff',
-    image: 'https://source.unsplash.com/random',
-    imageText: 'Image Text',
+    title: 'Walk Score',
+    tech: ['React', 'Firebase Cloud Firestore', 'Express | NodeJs', 'Google Maps API'],
+    description: 'Find and Compare Public Transit & Walkability Scores',
+    image: subway,
+    imageText: 'Walk Score',
+    modal: {
+      modalTitle: 'yo',
+      modalImage: 'https://source.unsplash.com/random',
+      modalDescription: 'This rocks',
+    },
   },
   {
-    title: 'Project 2',
-    tech: ['React', 'NodeJs'],
-    description: 'This is a description of the project highlighting some cool stuff',
-    image: 'https://source.unsplash.com/random',
-    imageText: 'Image Text 2',
+    title: 'Engineering Job Board',
+    tech: ['React', 'Express | NodeJs', 'Cronjob Library', 'GitHub Jobs API'],
+    description: 'Job board filtered for entry developer positions',
+    image: jobBoard,
+    imageText: 'Job Board',
+    modal: {
+      modalTitle: 'Sup',
+      modalImage: 'https://source.unsplash.com/random',
+      modalDescription: 'This rocks',
+    },
   },
   {
-    title: 'Project 3',
-    tech: ['React', 'Redux', 'NodeJs'],
-    description: 'This is a description of the project highlighting some cool stuff',
-    image: 'https://source.unsplash.com/random',
-    imageText: 'Image Text 3',
-  },
-  {
-    title: 'Project 4',
-    tech: ['React', 'Redux', 'NodeJs'],
-    description: 'This is a description of the project highlighting some cool stuff',
-    image: 'https://source.unsplash.com/random',
-    imageText: 'Image Text 3',
-  },
-  {
-    title: 'Project 5',
-    tech: ['React', 'Redux', 'NodeJs'],
-    description: 'This is a description of the project highlighting some cool stuff',
-    image: 'https://source.unsplash.com/random',
-    imageText: 'Image Text 3',
-  },
-  {
-    title: 'Project 6',
-    tech: ['React', 'Redux', 'NodeJs'],
-    description: 'This is a description of the project highlighting some cool stuff',
-    image: 'https://source.unsplash.com/random',
-    imageText: 'Image Text 3',
+    title: 'Simple Tomato Timer',
+    tech: ['React', 'Material UI', 'CSS'],
+    description: 'Simple Productivity Timer using the Pomodoro Technique',
+    image: timer,
+    imageText: 'Tomato Timer',
+    modal: {
+      modalTitle: 'Cool',
+      modalImage: 'https://source.unsplash.com/random',
+      modalDescription: 'This rocks',
+    },
   },
 ];
 
@@ -116,8 +117,10 @@ export default function App() {
             <Projects projects={projectsProp} />
           ))}
         </Grid>
+        <Paper elevation={0} square={matches} className={classes.paper}>
+          <Footer footer={footer} />
+        </Paper>
       </Paper>
-      <Footer footer={footer} />
     </div>
   );
 }
