@@ -21,6 +21,8 @@
 .env.production.local
 .firebaserc
 .firebase/
+.prettierrc.json
+.eslintrc.json  
 firebase.json
 
 public/android-chrome-192x192.png

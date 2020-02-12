@@ -12,9 +12,9 @@ import Footer from './Components/Footer';
 import subway from './Assets/subway.jpg';
 import jobBoard from './Assets/jobBoard.jpg';
 import timer from './Assets/timer.jpg';
+import background from './Assets/background.png';
 
-
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {
     margin: theme.spacing(3),
     [theme.breakpoints.down('sm')]: {
@@ -45,7 +45,7 @@ const footer = {
 
 const navBar = {
   title: 's',
-  image: 'https://iili.io/HNxj7p.png',
+  image: background,
   imgText: 'main image desc',
 };
 
@@ -57,22 +57,29 @@ const heroCard = {
 const aboutMe = {
   title: 'Full Stack Focused',
   subtitle1: 'Motivated to Master',
-  caption1: 'As a tenacious self-taught programmer, I approach every project as an opportunity to challenge my own knowledge and limitations in the pursuit of mastery.',
+  caption1:
+    'As a tenacious self-taught programmer, I approach every project as an opportunity to challenge my own knowledge and limitations in the pursuit of mastery.',
   subtitle2: 'A Person-First Approach',
-  caption2: 'I leverage my hospitality background to create compelling customer experiences. I strive for experience in use, elegance in design.',
+  caption2:
+    'I leverage my hospitality background to create compelling customer experiences. I strive for experience in use, elegance in design.',
 };
 
 const projects = [
   {
     title: 'Walk Score',
-    tech: ['React', 'Firebase Cloud Firestore', 'Express | NodeJs', 'Google Maps API'],
+    tech: [
+      'React',
+      'Firebase Cloud Firestore',
+      'Express | NodeJs',
+      'Google Maps API',
+    ],
     description: 'Find and Compare Public Transit & Walkability Scores',
     image: subway,
     imageText: 'Walk Score',
     modal: {
       modalTitle: 'yo',
       modalImage: 'https://source.unsplash.com/random',
-      modalDescription: 'This rocks',
+      modalFeatures: ['This rocks', 'This is Sick', 'Cool'],
     },
   },
   {
@@ -84,7 +91,7 @@ const projects = [
     modal: {
       modalTitle: 'Sup',
       modalImage: 'https://source.unsplash.com/random',
-      modalDescription: 'This rocks',
+      modalFeatures: ['This rocks', 'This is Sick', 'Cool'],
     },
   },
   {
@@ -96,7 +103,7 @@ const projects = [
     modal: {
       modalTitle: 'Cool',
       modalImage: 'https://source.unsplash.com/random',
-      modalDescription: 'This rocks',
+      modalFeatures: ['This rocks', 'This is Sick', 'Cool'],
     },
   },
 ];
@@ -113,7 +120,7 @@ export default function App() {
       <About aboutMe={aboutMe} />
       <Paper elevation={0} square={matches} className={classes.paper}>
         <Grid id="projects" className={classes.container} container spacing={3}>
-          {projects.map((projectsProp) => (
+          {projects.map(projectsProp => (
             <Projects projects={projectsProp} />
           ))}
         </Grid>

@@ -10,7 +10,7 @@ import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
 import Modal from './Modal';
 
-const useStyles = makeStyles(((theme) => ({
+const useStyles = makeStyles(theme => ({
   card: {
     height: '100%',
     display: 'flex',
@@ -42,8 +42,7 @@ const useStyles = makeStyles(((theme) => ({
     borderRadius: 4,
     padding: 2,
   },
-})));
-
+}));
 
 export default function Projects({ projects }) {
   const classes = useStyles();
@@ -57,7 +56,6 @@ export default function Projects({ projects }) {
     setOpen(false);
   };
 
-
   return (
     <>
       <Modal projects={projects} open={open} handleClose={handleClose} />
@@ -68,12 +66,12 @@ export default function Projects({ projects }) {
             {projects.title}
           </Typography>
           <div className={classes.techOverlay}>
-            {projects.tech.map((item) => <Typography variant="subtitle2">{item}</Typography>)}
+            {projects.tech.map(item => (
+              <Typography variant="subtitle2">{item}</Typography>
+            ))}
           </div>
           <CardContent className={classes.cardContent}>
-            <Typography>
-              {projects.description}
-            </Typography>
+            <Typography>{projects.description}</Typography>
           </CardContent>
           <CardActions>
             <Button

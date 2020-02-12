@@ -9,7 +9,7 @@ import javascript from '../Assets/javascript.svg';
 import nodejs from '../Assets/nodejs.png';
 import reactLogo from '../Assets/logo512.png';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {
     marginTop: theme.spacing(5),
     marginBottom: theme.spacing(5),
@@ -63,7 +63,11 @@ export default function About({ aboutMe }) {
         >
           <Tilt className={`${classes.tilt} Tilt`} options={{ max: 10 }}>
             <div className="tilt-inner">
-              <img className={classes.images} alt="Javascript" src={javascript} />
+              <img
+                className={classes.images}
+                alt="Javascript"
+                src={javascript}
+              />
             </div>
           </Tilt>
           <Tilt className={`${classes.tilt} Tilt`} options={{ max: 10 }}>
