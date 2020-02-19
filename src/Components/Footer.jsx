@@ -1,12 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import Grid from '@material-ui/core/Grid';
-import { animateScroll as scroll } from 'react-scroll';
+import { Typography, Box, Button, IconButton, Grid } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   footer: {
@@ -39,11 +34,7 @@ export default function Footer({ footer }) {
     <footer className={classes.footer}>
       <Grid container>
         <Grid item sm={12} className={classes.item}>
-          <IconButton
-            onClick={scroll.scrollToTop}
-            className={classes.menuButton}
-            color="inherit"
-          >
+          <IconButton href="#" className={classes.menuButton} color="inherit">
             s
           </IconButton>
         </Grid>
@@ -82,11 +73,18 @@ export default function Footer({ footer }) {
           <Box className={classes.box} borderTop={1}>
             <Typography variant="button">
               <Button
-                href={footer.trello}
+                href={footer.trelloUrl}
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                Site by Taylor Steele
+                {footer.siteBy}
+              </Button>
+              <Button
+                href={footer.portfolioGithubUrl}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Source Code
               </Button>
             </Typography>
           </Box>
@@ -104,7 +102,9 @@ Footer.propTypes = {
     linkedInUrl: PropTypes.string,
     resume: PropTypes.string,
     resumeUrl: PropTypes.string,
-    trello: PropTypes.string,
+    siteBy: PropTypes.string,
+    trelloUrl: PropTypes.string,
+    portfolioGithubUrl: PropTypes.string,
   }),
 };
 

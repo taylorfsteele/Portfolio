@@ -1,16 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
-import Grid from '@material-ui/core/Grid';
-import Divider from '@material-ui/core/Divider';
-import { Box, Typography } from '@material-ui/core';
+import {
+  Typography,
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  IconButton,
+  Grid,
+  Divider,
+} from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   closeButton: {
@@ -21,20 +23,21 @@ const useStyles = makeStyles(theme => ({
   },
   container: {
     display: 'flex',
-    justifyContent: 'space-between',
+    justifyContent: 'space-evenly',
   },
   item: {
-    maxWidth: 200,
+    justifyContent: 'center',
   },
+
   image: {
-    width: '100%',
-    paddingRight: theme.spacing(2),
+    maxWidth: '100%',
   },
 }));
 
 export default function Modal({ open, handleClose, projects }) {
   const classes = useStyles();
-  const listItems = projects.modal.modalFeatures.map(number => (
+  const { modal } = projects;
+  const listItems = modal.modalFeatures.map(number => (
     <li key={number.toString()}>{number}</li>
   ));
 
@@ -42,7 +45,7 @@ export default function Modal({ open, handleClose, projects }) {
     <div>
       <Dialog
         fullWidth
-        maxWidth="md"
+        maxWidth="lg"
         open={open}
         keepMounted
         onClose={handleClose}
@@ -50,7 +53,7 @@ export default function Modal({ open, handleClose, projects }) {
         aria-describedby="alert-dialog-slide-description"
       >
         <DialogTitle onClose={handleClose} id="alert-dialog-slide-title">
-          {projects.modal.modalTitle}
+          {modal.modalTitle}
         </DialogTitle>
         {handleClose ? (
           <IconButton
@@ -63,29 +66,42 @@ export default function Modal({ open, handleClose, projects }) {
         ) : null}
         <DialogContent dividers>
           <Grid container spacing={3} className={classes.container}>
-            <Grid item className={classes.item} xs={6}>
-              <Box borderRight={1}>
-                <img
-                  className={classes.image}
-                  src={projects.modal.modalImage}
-                  alt="Modal"
-                />
-              </Box>
+            <Grid item className={classes.item} xs={9}>
+              <img
+                className={classes.image}
+                src={modal.modalImage}
+                alt="Modal"
+              />
             </Grid>
             <Divider />
-            <Grid item>
-              <Typography>Key Features</Typography>
-              <ul style={{ listStyleType: 'none' }}>{listItems}</ul>
+            <Grid item xs>
+              <Typography align="left">Project Highlights</Typography>
+              <ul
+                style={{
+                  listStyleType: 'circle',
+                  paddingLeft: 0,
+                  textAlign: 'left',
+                }}
+              >
+                {listItems}
+              </ul>
             </Grid>
           </Grid>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            View Demo
-          </Button>
-          <Button onClick={handleClose} color="primary">
-            Source Code
-          </Button>
+          {modal.modalLinks.map((element, i) => {
+            return (
+              <Button
+                color="primary"
+                href={element.url}
+                rel="noopener noreferrer"
+                target="_blank"
+                key={i}
+              >
+                {element.title}
+              </Button>
+            );
+          })}
         </DialogActions>
       </Dialog>
     </div>
@@ -93,13 +109,15 @@ export default function Modal({ open, handleClose, projects }) {
 }
 
 Modal.propTypes = {
-  open: PropTypes.func,
-  handleClose: PropTypes.func,
-  projects: PropTypes.shape,
-};
-
-Modal.defaultProps = {
-  open: 'Open Function Here',
-  handleClose: 'Close Function Here',
-  projects: 'Here are my Projects',
+  open: PropTypes.bool.isRequired,
+  handleClose: PropTypes.func.isRequired,
+  projects: PropTypes.shape({
+    description: PropTypes.string,
+    image: PropTypes.string,
+    imageText: PropTypes.string,
+    modal: PropTypes.object,
+    sourceUrl: PropTypes.string,
+    tech: PropTypes.array,
+    title: PropTypes.string,
+  }).isRequired,
 };

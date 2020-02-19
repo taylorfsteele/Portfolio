@@ -1,10 +1,7 @@
 import React from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
 import './App.css';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { CssBaseline, Grid, Paper, useMediaQuery } from '@material-ui/core';
 import HeroCard from './Components/HeroCard';
 import Projects from './Components/Projects';
 import About from './Components/About';
@@ -12,7 +9,10 @@ import Footer from './Components/Footer';
 import subway from './Assets/subway.jpg';
 import jobBoard from './Assets/jobBoard.jpg';
 import timer from './Assets/timer.jpg';
-import background from './Assets/background.png';
+import background from './Assets/background.jpg';
+import walkScoreGif from './Assets/WalkScore.gif';
+import tomatoGif from './Assets/TomatoGif.gif';
+import jobGif from './Assets/JobsGif.gif';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -40,7 +40,9 @@ const footer = {
   linkedInUrl: 'https://www.linkedin.com/in/taylorfsteele/',
   resume: 'resume',
   resumeUrl: '',
-  trello: 'https://trello.com/b/inBbrP3X/portfolio-website',
+  siteBy: 'Site By Taylor Steele',
+  trelloUrl: 'https://trello.com/b/inBbrP3X/portfolio-website',
+  portfolioGithubUrl: 'https://github.com/taylorfsteele',
 };
 
 const navBar = {
@@ -61,7 +63,7 @@ const aboutMe = {
     'As a tenacious self-taught programmer, I approach every project as an opportunity to challenge my own knowledge and limitations in the pursuit of mastery.',
   subtitle2: 'A Person-First Approach',
   caption2:
-    'I leverage my hospitality background to create compelling customer experiences. I strive for experience in use, elegance in design.',
+    'Leveraging my hospitality background, my approach is person-centric in order to create compelling customer experiences. I strive for experience in use, elegance in design.',
 };
 
 const projects = [
@@ -69,41 +71,88 @@ const projects = [
     title: 'Walk Score',
     tech: [
       'React',
-      'Firebase Cloud Firestore',
       'Express | NodeJs',
+      'Google Cloud Firestore',
       'Google Maps API',
     ],
     description: 'Find and Compare Public Transit & Walkability Scores',
+    sourceUrl: 'https://github.com/taylorfsteele/WalkScoreProject',
     image: subway,
     imageText: 'Walk Score',
     modal: {
-      modalTitle: 'yo',
-      modalImage: 'https://source.unsplash.com/random',
-      modalFeatures: ['This rocks', 'This is Sick', 'Cool'],
+      modalTitle: 'Walk Score',
+      modalImage: walkScoreGif,
+      modalFeatures: [
+        'API Calls to Google Maps Geocoding API and Walk Score API',
+        'Utilizes Google Cloud Firestore for CRUD Operations',
+        'Easy-to-Read Promise Handling with Async / Await Syntax',
+        'Integrated ESLint with Airbnb Style Guide',
+      ],
+      modalLinks: [
+        {
+          title: 'Source Code',
+          url: 'https://github.com/taylorfsteele/WalkScoreProject',
+        },
+        {
+          title: 'Demo Coming Soon!',
+          url: '',
+        },
+      ],
     },
   },
   {
     title: 'Engineering Job Board',
-    tech: ['React', 'Express | NodeJs', 'Cronjob Library', 'GitHub Jobs API'],
+    tech: [
+      'React',
+      'Express | NodeJs',
+      'CronJob Library',
+      'Redis NoSQL Database',
+    ],
     description: 'Job board filtered for entry developer positions',
+    sourceUrl: 'https://github.com/taylorfsteele/Entry-Job-Board',
     image: jobBoard,
     imageText: 'Job Board',
     modal: {
-      modalTitle: 'Sup',
-      modalImage: 'https://source.unsplash.com/random',
-      modalFeatures: ['This rocks', 'This is Sick', 'Cool'],
+      modalTitle: 'Entry Level Engineering Job Board',
+      modalImage: jobGif,
+      modalFeatures: [
+        'Utilizes NodeJS CronJob library for scheduled jobs fetch',
+        'API Calls to GitHub Jobs to retvieve jobs',
+        'Stores API Calls and serves to Front-End with Redis Cloud Database',
+        'React Front-End with Material UI Styled Component Library, NodeJS with Express Back-End',
+      ],
+      modalLinks: [
+        {
+          title: 'Source Code',
+          url: 'https://github.com/taylorfsteele/Entry-Job-Board',
+        },
+      ],
     },
   },
   {
     title: 'Simple Tomato Timer',
     tech: ['React', 'Material UI', 'CSS'],
     description: 'Simple Productivity Timer using the Pomodoro Technique',
+    sourceUrl: 'https://github.com/taylorfsteele/SimpleTomatoTimer',
     image: timer,
     imageText: 'Tomato Timer',
     modal: {
       modalTitle: 'Cool',
-      modalImage: 'https://source.unsplash.com/random',
-      modalFeatures: ['This rocks', 'This is Sick', 'Cool'],
+      modalImage: tomatoGif,
+      modalFeatures: [
+        'React Project utilizing functional components and State & Effect Hooks',
+        'Material UI Styled Component Library',
+      ],
+      modalLinks: [
+        {
+          title: 'Source Code',
+          url: 'https://github.com/taylorfsteele/SimpleTomatoTimer',
+        },
+        {
+          title: 'Demo Coming Soon!',
+          url: '',
+        },
+      ],
     },
   },
 ];
@@ -114,14 +163,14 @@ export default function App() {
   const matches = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} id="#">
       <CssBaseline />
       <HeroCard heroCard={heroCard} navBar={navBar} />
       <About aboutMe={aboutMe} />
       <Paper elevation={0} square={matches} className={classes.paper}>
         <Grid id="projects" className={classes.container} container spacing={3}>
-          {projects.map(projectsProp => (
-            <Projects projects={projectsProp} />
+          {projects.map((projectsProp, i) => (
+            <Projects key={i} projects={projectsProp} />
           ))}
         </Grid>
         <Paper elevation={0} square={matches} className={classes.paper}>
