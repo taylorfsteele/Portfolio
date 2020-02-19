@@ -104,7 +104,7 @@ const projects = [
     imageText: 'Job Board',
     modal: {
       modalTitle: 'Sup',
-      modalImage: 'https://source.unsplash.com/random',
+      modalImage: walkScoreGif,
       modalFeatures: ['This rocks', 'This is Sick', 'Cool'],
       modalLinks: [
         {
@@ -122,7 +122,7 @@ const projects = [
     imageText: 'Tomato Timer',
     modal: {
       modalTitle: 'Cool',
-      modalImage: 'https://source.unsplash.com/random',
+      modalImage: walkScoreGif,
       modalFeatures: ['This rocks', 'This is Sick', 'Cool'],
       modalLinks: [
         {
