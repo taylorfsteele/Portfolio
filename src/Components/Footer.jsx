@@ -1,15 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
-import {
-  Typography,
-  Box,
-  Button,
-  IconButton,
-  Grid,
-  Dialog,
-  DialogTitle,
-} from '@material-ui/core';
+import { Typography, Box, Button, IconButton, Grid } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   footer: {
@@ -35,32 +27,8 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function Resume(props) {
-  const { onClose, open } = props;
-
-  const handleClose = () => {
-    onClose();
-  };
-
-  return (
-    <Dialog onClose={handleClose} open={open}>
-      <DialogTitle>Resume</DialogTitle>
-      I'm Cool
-    </Dialog>
-  );
-}
-
 export default function Footer({ footer }) {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = value => {
-    setOpen(false);
-  };
 
   return (
     <footer className={classes.footer}>
@@ -92,14 +60,12 @@ export default function Footer({ footer }) {
             </Typography>
             <Typography>
               <Button
-                onClick={handleClickOpen}
-                href={footer.resumeUrl}
+                href={footer.resumeLink}
                 rel="noopener noreferrer"
                 target="_blank"
               >
                 {footer.resume}
               </Button>
-              <Resume open={open} onClose={handleClose} />
             </Typography>
           </Box>
         </Grid>
@@ -135,7 +101,7 @@ Footer.propTypes = {
     linkedIn: PropTypes.string,
     linkedInUrl: PropTypes.string,
     resume: PropTypes.string,
-    resumeUrl: PropTypes.string,
+    resumeLink: PropTypes.string,
     siteBy: PropTypes.string,
     trelloUrl: PropTypes.string,
     portfolioGithubUrl: PropTypes.string,
