@@ -103,6 +103,13 @@ export default function HeroCard({ navBar, heroCard }) {
 }
 
 HeroCard.propTypes = {
-  navBar: PropTypes.shape.isRequired,
-  heroCard: PropTypes.shape.isRequired,
+  navBar: PropTypes.shape({
+    image: PropTypes.string,
+    imageText: PropTypes.string,
+    title: PropTypes.string,
+  }).isRequired,
+  heroCard: PropTypes.shape({
+    caption: PropTypes.string,
+    title: PropTypes.string,
+  }).isRequired,
 };

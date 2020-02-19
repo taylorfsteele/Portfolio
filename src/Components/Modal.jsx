@@ -31,7 +31,6 @@ const useStyles = makeStyles(theme => ({
 
   image: {
     maxWidth: '100%',
-    // paddingRight: theme.spacing(2),
   },
 }));
 
@@ -76,7 +75,7 @@ export default function Modal({ open, handleClose, projects }) {
             </Grid>
             <Divider />
             <Grid item xs>
-              <Typography align="right">Highlights</Typography>
+              <Typography align="left">Project Highlights</Typography>
               <ul
                 style={{
                   listStyleType: 'circle',
@@ -90,13 +89,14 @@ export default function Modal({ open, handleClose, projects }) {
           </Grid>
         </DialogContent>
         <DialogActions>
-          {modal.modalLinks.map(element => {
+          {modal.modalLinks.map((element, i) => {
             return (
               <Button
                 color="primary"
                 href={element.url}
                 rel="noopener noreferrer"
                 target="_blank"
+                key={i}
               >
                 {element.title}
               </Button>
@@ -109,13 +109,15 @@ export default function Modal({ open, handleClose, projects }) {
 }
 
 Modal.propTypes = {
-  open: PropTypes.func,
-  handleClose: PropTypes.func,
-  projects: PropTypes.shape,
-};
-
-Modal.defaultProps = {
-  open: 'Open Function Here',
-  handleClose: 'Close Function Here',
-  projects: 'Here are my Projects',
+  open: PropTypes.bool.isRequired,
+  handleClose: PropTypes.func.isRequired,
+  projects: PropTypes.shape({
+    description: PropTypes.string,
+    image: PropTypes.string,
+    imageText: PropTypes.string,
+    modal: PropTypes.object,
+    sourceUrl: PropTypes.string,
+    tech: PropTypes.array,
+    title: PropTypes.string,
+  }).isRequired,
 };

@@ -37,5 +37,9 @@ export default function NavBar({ navBar }) {
   );
 }
 NavBar.propTypes = {
-  navBar: PropTypes.shape.isRequired,
+  navBar: PropTypes.shape({
+    image: PropTypes.string,
+    imageText: PropTypes.string,
+    title: PropTypes.string,
+  }).isRequired,
 };

@@ -84,7 +84,7 @@ export default function Footer({ footer }) {
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                Site Source Code
+                Source Code
               </Button>
             </Typography>
           </Box>

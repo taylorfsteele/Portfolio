@@ -68,8 +68,10 @@ export default function Projects({ projects }) {
             {projects.title}
           </Typography>
           <div className={classes.techOverlay}>
-            {projects.tech.map(item => (
-              <Typography variant="subtitle2">{item}</Typography>
+            {projects.tech.map((item, i) => (
+              <Typography variant="subtitle2" key={i}>
+                {item}
+              </Typography>
             ))}
           </div>
           <CardContent className={classes.cardContent}>
@@ -85,7 +87,13 @@ export default function Projects({ projects }) {
             >
               More
             </Button>
-            <Button size="small" color="primary">
+            <Button
+              size="small"
+              color="primary"
+              href={projects.sourceUrl}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               Source Code
             </Button>
           </CardActions>
@@ -96,5 +104,13 @@ export default function Projects({ projects }) {
 }
 
 Projects.propTypes = {
-  projects: PropTypes.arrayOf(PropTypes.shape).isRequired,
+  projects: PropTypes.shape({
+    description: PropTypes.string,
+    image: PropTypes.string,
+    imageText: PropTypes.string,
+    modal: PropTypes.object,
+    sourceUrl: PropTypes.string,
+    tech: PropTypes.array,
+    title: PropTypes.string,
+  }).isRequired,
 };
