@@ -42,7 +42,7 @@ const footer = {
   resumeLink: '/src/Assets/Taylor Steele Resume.pdf',
   siteBy: 'Site By Taylor Steele',
   trelloUrl: 'https://trello.com/b/inBbrP3X/portfolio-website',
-  portfolioGithubUrl: 'https://github.com/taylorfsteele',
+  portfolioGithubUrl: 'https://github.com/taylorfsteele/Portfolio',
 };
 
 const navBar = {
@@ -92,6 +92,10 @@ const projects = [
         {
           title: 'Source Code',
           url: 'https://github.com/taylorfsteele/WalkScoreProject',
+        },
+        {
+          title: 'Trello Board',
+          url: 'https://trello.com/b/QDADh4mD/job-walk-score',
         },
         {
           title: 'Demo Coming Soon!',
