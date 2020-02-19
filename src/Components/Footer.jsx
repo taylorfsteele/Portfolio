@@ -60,7 +60,7 @@ export default function Footer({ footer }) {
             </Typography>
             <Typography>
               <Button
-                href={footer.resume}
+                href={footer.resumeLink}
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -101,7 +101,7 @@ Footer.propTypes = {
     linkedIn: PropTypes.string,
     linkedInUrl: PropTypes.string,
     resume: PropTypes.string,
-    resumeUrl: PropTypes.string,
+    resumeLink: PropTypes.string,
     siteBy: PropTypes.string,
     trelloUrl: PropTypes.string,
     portfolioGithubUrl: PropTypes.string,
