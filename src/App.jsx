@@ -39,7 +39,6 @@ const footer = {
   linkedIn: 'LinkedIn',
   linkedInUrl: 'https://www.linkedin.com/in/taylorfsteele/',
   resume: 'resume',
-  resumeLink: '/src/Assets/Taylor Steele Resume.pdf',
   siteBy: 'Site By Taylor Steele',
   trelloUrl: 'https://trello.com/b/inBbrP3X/portfolio-website',
   portfolioGithubUrl: 'https://github.com/taylorfsteele/Portfolio',

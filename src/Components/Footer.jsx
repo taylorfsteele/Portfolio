@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography, Box, Button, IconButton, Grid } from '@material-ui/core';
+import resumePdf from '../Assets/Taylor Steele Resume.pdf';
 
 const useStyles = makeStyles(theme => ({
   footer: {
@@ -60,7 +61,7 @@ export default function Footer({ footer }) {
             </Typography>
             <Typography>
               <Button
-                href={footer.resumeLink}
+                href={resumePdf}
                 rel="noopener noreferrer"
                 target="_blank"
               >
