@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: 'Monoton', cursive;
-font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -9,4 +9,8 @@ font-family: 'Roboto', sans-serif;
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+html {
+  scroll-behavior: smooth;
 }

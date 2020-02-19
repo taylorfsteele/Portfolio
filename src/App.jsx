@@ -1,10 +1,7 @@
 import React from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
 import './App.css';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { CssBaseline, Grid, Paper, useMediaQuery } from '@material-ui/core';
 import HeroCard from './Components/HeroCard';
 import Projects from './Components/Projects';
 import About from './Components/About';
@@ -12,7 +9,8 @@ import Footer from './Components/Footer';
 import subway from './Assets/subway.jpg';
 import jobBoard from './Assets/jobBoard.jpg';
 import timer from './Assets/timer.jpg';
-import background from './Assets/background.png';
+import background from './Assets/background.jpg';
+import walkScoreGif from './Assets/WalkScore.gif';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -40,7 +38,9 @@ const footer = {
   linkedInUrl: 'https://www.linkedin.com/in/taylorfsteele/',
   resume: 'resume',
   resumeUrl: '',
-  trello: 'https://trello.com/b/inBbrP3X/portfolio-website',
+  siteBy: 'Site By Taylor Steele',
+  trelloUrl: 'https://trello.com/b/inBbrP3X/portfolio-website',
+  portfolioGithubUrl: 'https://github.com/taylorfsteele',
 };
 
 const navBar = {
@@ -77,9 +77,23 @@ const projects = [
     image: subway,
     imageText: 'Walk Score',
     modal: {
-      modalTitle: 'yo',
-      modalImage: 'https://source.unsplash.com/random',
-      modalFeatures: ['This rocks', 'This is Sick', 'Cool'],
+      modalTitle: 'Walk Score',
+      modalImage: walkScoreGif,
+      modalFeatures: [
+        'API Calls to Google Maps Geocoding API and Walk Score API',
+        'Utilizes Google Cloud Firestore for CRUD Operations',
+        'Cool',
+      ],
+      modalLinks: [
+        {
+          title: 'Source Code',
+          url: 'https://github.com/taylorfsteele',
+        },
+        {
+          title: 'Demo Coming Soon!',
+          url: '',
+        },
+      ],
     },
   },
   {
@@ -92,6 +106,12 @@ const projects = [
       modalTitle: 'Sup',
       modalImage: 'https://source.unsplash.com/random',
       modalFeatures: ['This rocks', 'This is Sick', 'Cool'],
+      modalLinks: [
+        {
+          title: 'Source Code',
+          url: 'https://github.com/taylorfsteele',
+        },
+      ],
     },
   },
   {
@@ -104,6 +124,12 @@ const projects = [
       modalTitle: 'Cool',
       modalImage: 'https://source.unsplash.com/random',
       modalFeatures: ['This rocks', 'This is Sick', 'Cool'],
+      modalLinks: [
+        {
+          title: 'Source Code',
+          url: 'https://github.com/taylorfsteele',
+        },
+      ],
     },
   },
 ];
@@ -114,7 +140,7 @@ export default function App() {
   const matches = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} id="#">
       <CssBaseline />
       <HeroCard heroCard={heroCard} navBar={navBar} />
       <About aboutMe={aboutMe} />

@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import Typography from '@material-ui/core/Typography';
-import Fade from '@material-ui/core/Fade';
-import Box from '@material-ui/core/Box';
-import Button from '@material-ui/core/Button';
-import { Link } from 'react-scroll';
+import {
+  Paper,
+  useMediaQuery,
+  Typography,
+  Fade,
+  Box,
+  Button,
+} from '@material-ui/core';
 import NavBar from './NavBar';
 
 const useStyles = makeStyles(theme => ({
@@ -86,24 +87,15 @@ export default function HeroCard({ navBar, heroCard }) {
               </Box>
             </Fade>
           </Typography>
-          <Link
-            activeClass="active"
-            to="projects"
-            spy
-            smooth
-            offset={-30}
-            duration={600}
-          >
-            <Fade in timeout={3000}>
-              <Button
-                style={{ marginTop: 10 }}
-                variant="contained"
-                href="#projects"
-              >
-                See Projects
-              </Button>
-            </Fade>
-          </Link>
+          <Fade in timeout={3000}>
+            <Button
+              style={{ marginTop: 10 }}
+              variant="contained"
+              href="#projects"
+            >
+              See Projects
+            </Button>
+          </Fade>
         </div>
       </Paper>
     </Paper>
